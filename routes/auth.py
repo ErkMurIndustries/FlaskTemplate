@@ -41,12 +41,8 @@ def login_post():
 @auth.route('/logout')
 def logout():
     logout_user()
-    return render_template('auth/logout.html')
-
-
-@auth.route('/logout', methods=['POST'])
-def logout_post():
-    return 'Logged out!'
+    flash('You have been logged out!')
+    return render_template('auth/login.html')
 
 
 @auth.route('/signup')
@@ -66,7 +62,6 @@ def signup_post():
         db.session.commit()
     except ValidationError as err:
         error_messages = err.messages
-        print(error_messages)
         db.session.rollback()
         return render_template('auth/signup.html', error_messages=error_messages)
     flash('User added!')

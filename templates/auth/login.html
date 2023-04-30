@@ -12,17 +12,15 @@ Login
 
 
 <div class="auth-form">
-
-    {% set flash_messages = get_flashed_messages() %}
-    {% if flash_messages %}
-    <div class="flash_message">
-    {% for message in flash_messages %}
-        <p>{{message}}</p>
-    {% endfor %}
-    </div>
-    {% endif %}
-
+   {% set flash_messages = get_flashed_messages() %}
     <form method="post">
+        {% if flash_messages %}
+        <div class="flash-message">
+        {% for message in flash_messages %}
+            <p>{{message}}</p>
+        {% endfor %}
+        </div>
+        {% endif %}
         <div class="form-group">
             <label for="username">Username:</label>
             <input type="text" id="username" name="username" required>
