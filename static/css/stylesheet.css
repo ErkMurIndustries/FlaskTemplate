@@ -146,7 +146,10 @@ th, td {
 }
 
 .form-group > input {
-    width: -webkit-fill-available;
+    width: 100%;
+    width: -webkit-fill-available; /* for WebKit-based browsers */
+    width: -moz-available; /* for Firefox */
+    width: fill-available; /* for Edge */
     text-align: center;
 }
 

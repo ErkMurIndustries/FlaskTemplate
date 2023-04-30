@@ -1,6 +1,6 @@
 """ General routes for the app """
 
-from flask import Blueprint, redirect, render_template, url_for
+from flask import Blueprint, flash, redirect, render_template, url_for
 
 error = Blueprint('error', __name__)
 
@@ -8,13 +8,8 @@ error = Blueprint('error', __name__)
 @error.app_errorhandler(401)
 def unauthorized_error(e):
     """ Redirect on 401 Error """
-    return redirect(url_for('error.unauthorized'))
-
-
-@error.route('/unauthorized')
-def unauthorized():
-    """ Custom 401 page """
-    return render_template('error/unauthorized.html')
+    flash('You must be logged in to view this content')
+    return redirect(url_for('auth.login'))
 
 
 @error.app_errorhandler(403)
