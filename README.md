@@ -21,7 +21,7 @@ Base structure for a Flask web app.
 1. Clone the repository.
 
 ```shell
-git clone https://github.com/ErkMurIndustries/FlaskTemplate
+git clone https://github.com/erikjmurray/FlaskTemplate
 ```
 
 2. Change into the project directory.
